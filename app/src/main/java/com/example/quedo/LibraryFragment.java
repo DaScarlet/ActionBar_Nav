@@ -22,14 +22,15 @@ import com.google.android.material.navigation.NavigationView;
 
 public class LibraryFragment extends Fragment {
 
-    private DrawerLayout drawer;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_library, container, false);
 
         Button btnBooks= (Button) rootView.findViewById(R.id.booksbtn);
+        Button btnAddDocu = (Button) rootView.findViewById(R.id.add_docbtn);
+        Button btnReqDocu = (Button) rootView.findViewById(R.id.req_docbtn);
+
         btnBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,13 +40,24 @@ public class LibraryFragment extends Fragment {
 
         });
 
+        btnAddDocu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AddDocuFragment()).addToBackStack(null).commit();
+            }
+
+        });
+
+        btnReqDocu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ReqDocuFragment()).addToBackStack(null).commit();
+            }
+
+        });
+
         return rootView;
     }
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        setContentView(R.layout.fragment_library);
-//    }
-
 }

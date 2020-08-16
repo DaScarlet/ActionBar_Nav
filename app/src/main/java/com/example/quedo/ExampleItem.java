@@ -1,5 +1,10 @@
 package com.example.quedo;
 
+import android.app.Activity;
+import android.view.View;
+
+import androidx.fragment.app.Fragment;
+
 public class ExampleItem {
 
     private String mText1;
@@ -17,4 +22,6 @@ public class ExampleItem {
     public String getmText2() {
         return mText2;
     }
+
 }
+
